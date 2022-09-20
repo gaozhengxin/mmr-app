@@ -69,7 +69,7 @@ contract AddressSetVerifier {
         address proveaddr = abi.decode(value, (address));
         require(addr == proveaddr);
 
-        require(
+        return(
             MMR.inclusionProof(
                 root,
                 width,

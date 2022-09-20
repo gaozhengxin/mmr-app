@@ -48,6 +48,11 @@ contract AddressSet {
         emit Insert(addrs);
     }
 
+    /// @notice returns MMR root.
+    function getRoot() public view returns (bytes32) {
+        return mmr.root;
+    }
+
     /// @notice Get address inclusion proof.
     function getProof(address addr) public view returns (bytes memory proof) {
         (
