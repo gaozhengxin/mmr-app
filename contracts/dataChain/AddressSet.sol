@@ -6,7 +6,7 @@ import {MMR} from "../mmr/MMR.sol";
 contract AddressSet {
     using MMR for MMR.Tree;
 
-    MMR.Tree mmr;
+    MMR.Tree public mmr;
 
     address public admin;
 
@@ -74,7 +74,7 @@ contract AddressSet {
 
     /// @notice Verifies inclusion proof purely,
     /// omits root hash check.
-    function verify(bytes memory proof) public pure returns (bool) {
+    function verify(bytes memory proof) public view returns (bool) {
         (
             bytes32 root,
             uint256 width,
@@ -86,14 +86,7 @@ contract AddressSet {
                 proof,
                 (bytes32, uint256, uint256, bytes, bytes32[], bytes32[])
             );
-        return
-            MMR.inclusionProof(
-                root,
-                width,
-                index,
-                value,
-                peaks,
-                siblings
-            );
+        return (getRoot() == root &&
+            MMR.inclusionProof(root, width, index, value, peaks, siblings));
     }
 }

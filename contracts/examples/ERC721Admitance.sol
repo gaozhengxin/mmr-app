@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "../verifier/AddressSetVerifier.sol";
+import "../verifyChain/AddressSetVerifier.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
 contract ERC721Admitance is ERC721Enumerable, AddressSetVerifier {

@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 
-import "../contracts/mmr/MMR.sol";
+import "../mmr/MMR.sol";
 
 /**
  * I wrote this solidity test file just to show how to use this library
